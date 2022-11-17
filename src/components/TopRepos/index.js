@@ -1,6 +1,6 @@
-import "./App.css";
+import "./index.css";
 
-function App() {
+function TopReposs() {
   return (
     <div className="card p-5 mt-4">
       <h3 className="mb-4">List of Repositories</h3>
@@ -15,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default TopReposs;
