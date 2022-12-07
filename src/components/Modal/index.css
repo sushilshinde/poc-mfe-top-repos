@@ -1,0 +1,14 @@
+/* MODAL STYLES START*/
+.modal {
+    transition: all .8s !important;
+  }
+  
+.show {
+display: block;
+}
+
+.hide {
+display: none;
+}
+
+/* MODAL STYLES END*/
