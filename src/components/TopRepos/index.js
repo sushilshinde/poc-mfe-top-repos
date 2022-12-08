@@ -27,7 +27,7 @@ function TopRepos() {
             getRepos(searchTerm).then(data => {
                 if(data.status === 404) {
                     setRepos([]) 
-                    setShowModal({ show: true, text: `User not found for github username `, searchTerm })
+                    setShowModal({ show: true, text: `No Repositories found for `, searchTerm })
                 }else if(data.length === 0) {
                     setRepos([]) 
                     setShowModal({ show: true, text: `No Repositories found for `, searchTerm })
