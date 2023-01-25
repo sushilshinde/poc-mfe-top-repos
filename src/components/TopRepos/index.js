@@ -19,6 +19,7 @@ function TopRepos() {
         text: "",
         searchTerm,
     });
+
     useEffect(() => {
         window.addEventListener("getSearchTerm", (event) => {
             setSearchTerm(event.detail);
@@ -41,7 +42,14 @@ function TopRepos() {
                         text: `No Repositories found for `,
                         searchTerm,
                     });
-                } else if (data.length === 0) {
+                } else if(data.status === 401) {
+                    setRepos([]);
+                    const event = new CustomEvent("JWT_EXPIRED", {
+                        detail: true,
+                    });
+                    window.dispatchEvent(event);
+                }
+                else if (data.length === 0) {
                     setRepos([]);
                     setShowModal({
                         show: true,
@@ -73,7 +81,7 @@ function TopRepos() {
                 {repos.length > 0 &&
                     repos.map(({ id, name, html_url }) => (
                         <li className="list-group-item" key={id}>
-                            <i class="fa fa-caret-right"></i>
+                            <i className="fa fa-caret-right"></i>
                             <a href={html_url} target="_blank" rel="noreferrer">
                                 {name}
                             </a>
